@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-*",
+  "description": "MvcBootstrapTable Class Library",
+  "authors": [ "a150057" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net451": { }
+  },
+  "dependencies": {
+    "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-rc1-final"
+  }
+}
