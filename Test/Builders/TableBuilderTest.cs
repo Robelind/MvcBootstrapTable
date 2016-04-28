@@ -265,7 +265,7 @@ namespace Test.Builders
 
             if(rowsConfigured)
             {
-                _builder.RowConfig((b, e) => {actionBuilders.Add(b); configEntities.Add(e);});
+                _builder.Rows((b, e) => {actionBuilders.Add(b); configEntities.Add(e);});
             }
             if(pagingConfiguredAfter)
             {
@@ -294,7 +294,7 @@ namespace Test.Builders
             _builderFactory.ColumnsBuilder<TableEntity>(Arg.Do<Dictionary<string, ColumnConfig>>(c => config = c),
                 Arg.Do<SortingConfig>(c => sortingConfig = c)).Returns(columnsBuilder);
 
-            TableBuilder<TableEntity> builder = _builder.ColumnConfig(fb => actionBuilder = fb);
+            TableBuilder<TableEntity> builder = _builder.Columns(fb => actionBuilder = fb);
             this.RenderAndVerify();
 
             _builderFactory.Received(1).ColumnsBuilder<TableEntity>(Arg.Any<Dictionary<string, ColumnConfig>>(),

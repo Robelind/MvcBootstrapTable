@@ -694,7 +694,8 @@ namespace Test.Rendering
         {
             this.ActAndValidate();
 
-            this.VerifyInnerHtml(_nodes.First().InnerContent.First().Element, JsCode.Code);
+            this.VerifyInnerHtml(_nodes.First().InnerContent.First().Element,
+                string.Format(JsCode.Code, _containerId));
         }
 
         [Theory]

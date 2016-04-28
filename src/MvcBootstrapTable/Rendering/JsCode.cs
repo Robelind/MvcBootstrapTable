@@ -5,34 +5,34 @@
         public static string Code =>
         @"
 <script type=""text/javascript"">
-    $(document).ready(function() {
-        $('[data-pageselector-id]').change(function () {
+    $(document).ready(function() {{
+        $('#{0} [data-pageselector-id]').change(function () {{
             $($(this).data('pageselector-id')).attr('data-ajax-url', $(this).val());
             $($(this).data('pageselector-id')).click();
-        });
+        }});
 
-        $('[data-filter-prop]').on('input', function(e) {
-            if ($(this).val().length == 0 || $(this).val().length >= $(this).data('filter-threshold')) {
+        $('#{0} [data-filter-prop]').on('input', function(e) {{
+            if ($(this).val().length == 0 || $(this).val().length >= $(this).data('filter-threshold')) {{
                 var queryAttrs = '';
 
-                $('[data-filter-prop]').each(function () {
-                    if ($(this).val().length > 0) {
+                $('#{0} [data-filter-prop]').each(function () {{
+                    if ($(this).val().length > 0) {{
                         queryAttrs += '&filter[]=' + $(this).data('filter-prop') + '&filter[]=' + $(this).val();
-                    }
-                });
+                    }}
+                }});
                 queryAttrs += '&currentFilter=' + $(this).data('filter-prop');
-                $('#FilterLink').attr('data-ajax-url', $('#FilterLinkTemplate').val() + queryAttrs);
-                $('#FilterLink').click();
-            }
-        });
+                $('#{0} #FilterLink').attr('data-ajax-url', $('#{0} #FilterLinkTemplate').val() + queryAttrs);
+                $('#{0} #FilterLink').click();
+            }}
+        }});
 
-        $('[data-filter-focus]').each(function () {
+        $('#{0} [data-filter-focus]').each(function () {{
             var strLength = $(this).val().length * 2;
 
             $(this).focus();
             $(this)[0].setSelectionRange(strLength, strLength);
-        });
-    });
+        }});
+    }});
 </script>
         ";
     }

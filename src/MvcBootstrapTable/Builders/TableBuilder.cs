@@ -176,7 +176,7 @@ namespace MvcBootstrapTable.Builders
         /// <remarks>
         /// If using paging, configure it before doing row configuration.
         /// </remarks>
-        public TableBuilder<T> RowConfig(Action<RowBuilder<T>, T> configAction)
+        public TableBuilder<T> Rows(Action<RowBuilder<T>, T> configAction)
         {
             IEnumerable<T> entities = _config.Paging.PageSize > 0
                 ? _model.Entities.Take(_config.Paging.PageSize)
@@ -198,7 +198,7 @@ namespace MvcBootstrapTable.Builders
         /// </summary>
         /// <param name="configAction">Configuration action</param>
         /// <returns>The table builder instance.</returns>
-        public TableBuilder<T> ColumnConfig(Action<ColumnsBuilder<T>> configAction)
+        public TableBuilder<T> Columns(Action<ColumnsBuilder<T>> configAction)
         {
             configAction(_builderFactory.ColumnsBuilder<T>(_config.Columns, _config.Sorting));
             return(this);

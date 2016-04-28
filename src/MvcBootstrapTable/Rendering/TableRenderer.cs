@@ -56,7 +56,7 @@ namespace MvcBootstrapTable.Rendering
             this.Header(table);
             this.Body(table);
             this.Footer(table);
-            innerContainer.Element.InnerHtml.Append(new HtmlString(JsCode.Code));
+            innerContainer.Element.InnerHtml.Append(new HtmlString(string.Format(JsCode.Code, _containerId)));
             this.FilteringLinkTemplate(innerContainer);
             
             return(_nodeParser.Parse(nodes));
@@ -66,6 +66,7 @@ namespace MvcBootstrapTable.Rendering
         {
             TableNode innerContainer = new TableNode("div", table);
 
+            _containerId = _tableState.ContainerId;
             if(_containerId == null)
             {
                 TableNode container = new TableNode("div", innerContainer);
