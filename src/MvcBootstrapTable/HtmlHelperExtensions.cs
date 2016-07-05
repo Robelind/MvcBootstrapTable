@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MvcBootstrapTable.Builders;
 using MvcBootstrapTable.Config;
 using MvcBootstrapTable.Rendering;

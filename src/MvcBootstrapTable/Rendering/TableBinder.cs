@@ -1,15 +1,17 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace MvcBootstrapTable.Rendering
 {
     public class TableBinder : IModelBinder
     {
-        public Task<ModelBindingResult> BindModelAsync(ModelBindingContext bindingContext)
+        Task IModelBinder.BindModelAsync(ModelBindingContext bindingContext)
         {
-            TableState tableState = new TableStateParser().Parse(bindingContext.OperationBindingContext.HttpContext);
+            TableState tableState = new TableStateParser().Parse(bindingContext.HttpContext);
 
-            return(Task.FromResult(ModelBindingResult.Success("key", new TableUpdater(tableState))));
+            bindingContext.Result = ModelBindingResult.Success(new TableUpdater(tableState));
+
+            return(Task.FromResult(1));
         }
     }
 }

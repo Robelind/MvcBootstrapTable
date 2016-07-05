@@ -1,14 +1,14 @@
 {
   "version": "1.0.0-*",
-  "description": "MvcBootstrapTable Class Library",
-  "authors": [ "a150057" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
-  "frameworks": {
-    "net451": { }
-  },
+
   "dependencies": {
-    "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-rc1-final"
+    "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.0",
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
   }
 }

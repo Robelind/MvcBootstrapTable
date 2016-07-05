@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNet.Html.Abstractions;
+using Microsoft.AspNetCore.Html;
 using MvcBootstrapTable.Config;
 using MvcBootstrapTable.Rendering;
 

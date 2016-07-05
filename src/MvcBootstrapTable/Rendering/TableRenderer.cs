@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Microsoft.AspNet.Html.Abstractions;
-using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MvcBootstrapTable.Builders;
 using MvcBootstrapTable.Config;
 
@@ -56,7 +56,7 @@ namespace MvcBootstrapTable.Rendering
             this.Header(table);
             this.Body(table);
             this.Footer(table);
-            innerContainer.Element.InnerHtml.Append(new HtmlString(string.Format(JsCode.Code, _containerId)));
+            innerContainer.Element.InnerHtml.AppendHtml(string.Format(JsCode.Code, _containerId));
             this.FilteringLinkTemplate(innerContainer);
             
             return(_nodeParser.Parse(nodes));

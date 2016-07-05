@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using Microsoft.AspNet.Html.Abstractions;
+using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Html;
 
 namespace MvcBootstrapTable.Rendering
 {
@@ -22,7 +24,7 @@ namespace MvcBootstrapTable.Rendering
         {
             foreach(TableNode tableNode in node.InnerContent)
             {
-                node.Element.InnerHtml.Append(tableNode.Element);
+                node.Element.InnerHtml.AppendHtml(tableNode.Element);
                 this.ParseNode(tableNode);
             }            
         }
